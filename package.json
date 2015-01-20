@@ -1,0 +1,10 @@
+{
+  "name": "macropod-tools",
+  "version": "0.0.0",
+  "description": "dev server and build tools for macropod projects",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/macropodhq/macropod-tools.git"
+  },
+  "homepage": "https://github.com/macropodhq/macropod-tools"
+}
