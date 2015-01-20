@@ -16,7 +16,7 @@ This collection of configuration files and utility programs will provide two
 things:
 
 1. a similar configuration for webpack across all our projects
-2. identical processes for making production builds, runnings tests, and running
+2. identical processes for making production builds, running tests, and running
    dev servers.
 
 ## What do I have to do?
