@@ -8,7 +8,7 @@ var plugins = [
   new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
 ];
 
-var jsxLoader = ['jsx?harmony'];
+var jsxLoader = ['jsx-loader?harmony'];
 
 if (release)  {
   plugins.push(new webpack.DefinePlugin({
@@ -21,7 +21,7 @@ if (release)  {
   plugins.push(new webpack.optimize.DedupePlugin());
   plugins.push(new webpack.optimize.UglifyJsPlugin());
 } else {
-  jsxLoader = ['react-hot', 'jsx?harmony'];
+  jsxLoader = ['react-hot-loader', 'jsx-loader?harmony'];
 }
 
 var config = module.exports = {
@@ -31,15 +31,19 @@ var config = module.exports = {
   entry: {
     app: './app',
     vendor: ['react/addons', 'lodash-node', // incomplete, and needs some magic to pull them from the targets deps
-     'moment', 'react-textarea-autosize'],
+    'moment', 'react-textarea-autosize'],
   },
   output: {
     path: __dirname + '/dist',
     filename: '[name].js',
   },
   plugins: plugins,
+  resolveLoader: {
+    modulesDirectories: ['node_modules', 'node_modules/macropod-tools/node_modules']
+  },
   resolve: {
     extensions: ['', '.js', '.jsx', '.scss', '.css'],
+    modulesDirectories: ['node_modules', 'node_modules/macropod-tools/node_modules']
   },
   module: {
     loaders: [
@@ -63,5 +67,5 @@ var config = module.exports = {
       { test: /\.pdf$/,     loader: 'file-loader' },
       { test: /\raw.svg$/,  loader: 'raw-loader?' },
     ],
-},
+  },
 };
