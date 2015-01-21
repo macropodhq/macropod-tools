@@ -30,8 +30,7 @@ var config = module.exports = {
   devtool: !release && 'eval',
   entry: {
     app: './app',
-    vendor: ['react/addons', 'lodash-node', // incomplete, and needs some magic to pull them from the targets deps
-    'moment', 'react-textarea-autosize'],
+    vendor: [],
   },
   output: {
     path: __dirname + '/dist',
