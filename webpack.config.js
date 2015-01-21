@@ -21,7 +21,7 @@ if (release)  {
   plugins.push(new webpack.optimize.DedupePlugin());
   plugins.push(new webpack.optimize.UglifyJsPlugin());
 } else {
-  jsxLoader = ['react-hot-loader', 'jsx-loader?harmony'];
+  jsxLoader.unshift('react-hot-loader');
 }
 
 var config = module.exports = {
