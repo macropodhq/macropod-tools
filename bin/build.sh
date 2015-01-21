@@ -1,3 +1,5 @@
 #!/bin/sh
 
-NODE_ENV=production webpack -p --display-reasons --display-error-details --progress --colors --config webpack.config.js
+PATH="./node_modules/macropod-tools/node_modules/.bin:${PATH}"
+
+webpack -p --display-reasons --display-error-details --progress --colors
