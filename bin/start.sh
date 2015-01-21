@@ -5,4 +5,4 @@
 webpack-dev-server \
 	-d --hot --inline --history-api-fallback --display-reasons \
 	--display-error-details --progress	--colors --port ${PORT} \
-	--output-public-path http://127.0.0.1:${PORT}/
+	--output-public-path http://127.0.0.1:${PORT}/ --config ./node_modules/macropod-tools/webpack.config.js
