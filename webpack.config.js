@@ -60,6 +60,7 @@ var config = module.exports = {
       { test: /\.ttf$/,     loader: 'url-loader?' },
       { test: /\.eot$/,     loader: 'url-loader?' },
       { test: /\.svg$/,     loader: 'file-loader' },
+      { test: /\.pdf$/,     loader: 'file-loader' },
       { test: /\raw.svg$/,  loader: 'raw-loader?' },
     ],
 },
