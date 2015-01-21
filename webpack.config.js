@@ -1,5 +1,7 @@
 var webpack = require('webpack');
 
+var pkg = require(process.cwd() + '/package.json');
+
 var release = (process.env.NODE_ENV === 'production');
 
 var plugins = [
@@ -30,7 +32,14 @@ var config = module.exports = {
   devtool: !release && 'eval',
   entry: {
     app: './app',
-    vendor: [],
+    vendor: Object.keys(pkg.dependencies).filter(function(e) {
+      return [
+        'react-playground',
+        'open-sans',
+      ].indexOf(e) === -1;
+    }).concat([
+      'open-sans/scss/open-sans.scss',
+    ]),
   },
   output: {
     path: process.cwd() + '/dist',
@@ -42,7 +51,8 @@ var config = module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.scss', '.css'],
-    modulesDirectories: ['node_modules', 'node_modules/macropod-tools/node_modules']
+    modulesDirectories: ['node_modules', 'node_modules/macropod-tools/node_modules'],
+    packageMains: ['main', 'style'],
   },
   module: {
     loaders: [
