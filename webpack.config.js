@@ -33,7 +33,7 @@ var config = module.exports = {
     vendor: [],
   },
   output: {
-    path: __dirname + '/dist',
+    path: process.cwd() + '/dist',
     filename: '[name].js',
   },
   plugins: plugins,
