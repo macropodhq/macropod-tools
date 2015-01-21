@@ -20,7 +20,8 @@
     "url": "https://github.com/macropodhq/macropod-tools.git"
   },
   "bin": {
-    "macropod-start": "./bin/start.sh"
+    "macropod-start": "./bin/start.sh",
+    "macropod-build": "./bin/build.sh"
   },
   "homepage": "https://github.com/macropodhq/macropod-tools"
 }
