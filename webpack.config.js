@@ -35,6 +35,7 @@ var config = module.exports = {
     vendor: Object.keys(pkg.dependencies).filter(function(e) {
       return [
         'react-playground',
+        'react-components', //TODO: make this finer
         'open-sans',
       ].indexOf(e) === -1;
     }).concat([
