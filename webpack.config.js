@@ -83,9 +83,9 @@ var config = module.exports = {
       { test: /\.woff$/,    loader: 'url-loader?mimetype=application/font-woff' },
       { test: /\.ttf$/,     loader: 'url-loader?' },
       { test: /\.eot$/,     loader: 'url-loader?' },
-      { test: /\.svg$/,     loader: 'file-loader' },
+      { test: /\.svg$/,     loader: 'url-loader' },
       { test: /\.pdf$/,     loader: 'file-loader' },
-      { test: /\raw.svg$/,  loader: 'raw-loader?' },
+      { test: /\.raw.svg$/, loader: 'raw-loader?' },
     ],
   },
 };
