@@ -53,7 +53,7 @@ var config = module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.scss', '.css'],
     modulesDirectories: ['node_modules', 'node_modules/macropod-tools/node_modules'],
-    packageMains: ['main', 'style'],
+    packageMains: ['browser', 'main', 'style'],
   },
   module: {
     loaders: [
