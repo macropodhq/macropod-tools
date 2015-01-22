@@ -50,9 +50,7 @@ var config = module.exports = {
         'react-components', //TODO: make this finer
         'open-sans',
       ].indexOf(e) === -1;
-    }).concat([
-      'open-sans/scss/open-sans.scss',
-    ]),
+    }),
   },
   output: {
     path: process.cwd() + '/dist',
