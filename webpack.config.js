@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-
+var path = require('path');
 var pkg = require(process.cwd() + '/package.json');
 
 var release = (process.env.NODE_ENV === 'production');
@@ -8,6 +8,17 @@ var plugins = [
   new webpack.IgnorePlugin(/vertx/),
   new webpack.NormalModuleReplacementPlugin(/^react$/, 'react/addons'),
   new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+  function() { // emit stats.json here because shell scripting is hard
+    this.plugin('done', function(stats) {
+      var jsonStats = stats.toJson({
+        chunkModules: true,
+      });
+      require('fs').writeFileSync(
+        path.join(process.cwd(), 'dist', 'stats.json'),
+        JSON.stringify(jsonStats)
+      );
+    });
+  },
 ];
 
 var jsxLoader = ['jsx-loader?harmony'];
@@ -22,6 +33,7 @@ if (release)  {
 
   plugins.push(new webpack.optimize.DedupePlugin());
   plugins.push(new webpack.optimize.UglifyJsPlugin());
+  plugins.push(new webpack.NoErrorsPlugin()); // cause failed production builds to fail faster
 } else {
   jsxLoader.unshift('react-hot-loader');
 }
