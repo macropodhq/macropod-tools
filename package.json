@@ -5,6 +5,7 @@
   "dependencies": {
     "autoprefixer-loader": "^1.0.0",
     "css-loader": "^0.9.1",
+    "eslint": "^0.12.0",
     "file-loader": "^0.8.1",
     "jsx-loader": "^0.12.2",
     "raw-loader": "~0.5.1",
@@ -20,6 +21,7 @@
     "url": "https://github.com/macropodhq/macropod-tools.git"
   },
   "bin": {
+    "macropod-lint": "eslint",
     "macropod-prod": "./bin/build-production.sh",
     "macropod-start": "./bin/start.sh",
     "macropod-build": "./bin/build.sh"
