@@ -2,4 +2,4 @@
 
 PATH="./node_modules/macropod-tools/node_modules/.bin:${PATH}"
 
-eslint
+eslint --ext .js --ext .jsx app
