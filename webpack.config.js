@@ -1,18 +1,27 @@
 var webpack = require('webpack');
 var path = require('path');
 var pkg = require(process.cwd() + '/package.json');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var release = (process.env.NODE_ENV === 'production');
+var chunkSymbol = release ? '.[chunkhash].' : '';
 
 var plugins = [
   new webpack.IgnorePlugin(/vertx/),
   new webpack.NormalModuleReplacementPlugin(/^react$/, 'react/addons'),
-  new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+  new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor' + chunkSymbol + 'js'),
+  new HtmlWebpackPlugin({
+    template: 'app/index.html'
+  }),
   function() { // emit stats.json here because shell scripting is hard
     this.plugin('done', function(stats) {
       var jsonStats = stats.toJson({
         chunkModules: true,
       });
+      require('fs').writeFileSync(
+        path.join(process.cwd(), 'dist', 'assets.json'),
+        JSON.stringify(jsonStats.assetsByChunkName)
+      );
       require('fs').writeFileSync(
         path.join(process.cwd(), 'dist', 'stats.json'),
         JSON.stringify(jsonStats)
@@ -54,7 +63,7 @@ var config = module.exports = {
   },
   output: {
     path: process.cwd() + '/dist',
-    filename: '[name].js',
+    filename: '[name]' + chunkSymbol + 'js',
   },
   plugins: plugins,
   resolveLoader: {
