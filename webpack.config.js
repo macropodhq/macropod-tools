@@ -4,17 +4,16 @@ var pkg = require(process.cwd() + '/package.json');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var release = (process.env.NODE_ENV === 'production');
-var chunkSymbol = false ? '.[chunkhash].' : '.';
-//disable this until stack is unfucked
+var testing = (process.env.NODE_ENV === 'testing');
 
 var plugins = [
   new webpack.IgnorePlugin(/vertx/),
   new webpack.NormalModuleReplacementPlugin(/^react$/, 'react/addons'),
-  new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor' + chunkSymbol + 'js'),
-  /*new HtmlWebpackPlugin({
-    template: 'app/index.html'
-  }),*/
-  function() { // emit stats.json here because shell scripting is hard
+];
+
+if (!testing) {
+  plugins.push(new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'));
+  plugins.push(function() { // emit stats.json here because shell scripting is hard
     this.plugin('done', function(stats) {
       var jsonStats = stats.toJson({
         chunkModules: true,
@@ -28,8 +27,8 @@ var plugins = [
         JSON.stringify(jsonStats)
       );
     });
-  },
-];
+  });
+}
 
 var jsxLoader = ['jsx-loader?harmony'];
 
@@ -44,15 +43,14 @@ if (release)  {
   plugins.push(new webpack.optimize.DedupePlugin());
   plugins.push(new webpack.optimize.UglifyJsPlugin());
   plugins.push(new webpack.NoErrorsPlugin()); // cause failed production builds to fail faster
-} else {
+} else if (!testing) {
   jsxLoader.unshift('react-hot-loader');
 }
 
-var config = module.exports = {
-  debug: !release,
-  cache: !release,
-  devtool: !release && 'eval',
-  entry: {
+if (testing) {
+  var entry = null;
+} else {
+  var entry = {
     app: './app',
     vendor: Object.keys(pkg.dependencies).filter(function(e) {
       return [
@@ -61,10 +59,17 @@ var config = module.exports = {
         'open-sans',
       ].indexOf(e) === -1;
     }),
-  },
+  };
+}
+
+var config = module.exports = {
+  debug: !release,
+  cache: !release,
+  devtool: !release && 'eval',
+  entry: entry,
   output: {
     path: process.cwd() + '/dist',
-    filename: '[name]' + chunkSymbol + 'js',
+    filename: '[name].js',
   },
   plugins: plugins,
   resolveLoader: {

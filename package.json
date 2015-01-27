@@ -4,11 +4,13 @@
   "description": "dev server and build tools for macropod projects",
   "dependencies": {
     "autoprefixer-loader": "^1.0.0",
+    "chai": "^1.10.0",
     "css-loader": "^0.9.1",
     "eslint": "^0.13.0",
     "file-loader": "^0.8.1",
     "html-webpack-plugin": "^1.1.0",
     "jsx-loader": "^0.12.2",
+    "mocha": "^2.1.0",
     "raw-loader": "~0.5.1",
     "react-hot-loader": "^1.1.1",
     "sass-loader": "^0.3.1",
@@ -21,11 +23,15 @@
     "type": "git",
     "url": "https://github.com/macropodhq/macropod-tools.git"
   },
+  "scripts": {
+    "mocha-assets": "cp -a node_modules/mocha/mocha.{css,js} testing/"
+  },
   "bin": {
     "macropod-lint": "./bin/lint.sh",
     "macropod-prod": "./bin/build-production.sh",
     "macropod-start": "./bin/start.sh",
-    "macropod-build": "./bin/build.sh"
+    "macropod-build": "./bin/build.sh",
+    "macropod-start-test": "./bin/start-test.sh"
   },
   "homepage": "https://github.com/macropodhq/macropod-tools"
 }
