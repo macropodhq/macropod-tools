@@ -4,7 +4,7 @@ var pkg = require(process.cwd() + '/package.json');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var release = (process.env.NODE_ENV === 'production');
-var chunkSymbol = release ? '.[chunkhash].' : '';
+var chunkSymbol = release ? '.[chunkhash].' : '.';
 
 var plugins = [
   new webpack.IgnorePlugin(/vertx/),
