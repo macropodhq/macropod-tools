@@ -4,15 +4,16 @@ var pkg = require(process.cwd() + '/package.json');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var release = (process.env.NODE_ENV === 'production');
-var chunkSymbol = release ? '.[chunkhash].' : '.';
+var chunkSymbol = false ? '.[chunkhash].' : '.';
+//disable this until stack is unfucked
 
 var plugins = [
   new webpack.IgnorePlugin(/vertx/),
   new webpack.NormalModuleReplacementPlugin(/^react$/, 'react/addons'),
   new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor' + chunkSymbol + 'js'),
-  new HtmlWebpackPlugin({
+  /*new HtmlWebpackPlugin({
     template: 'app/index.html'
-  }),
+  }),*/
   function() { // emit stats.json here because shell scripting is hard
     this.plugin('done', function(stats) {
       var jsonStats = stats.toJson({
