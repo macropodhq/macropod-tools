@@ -54,7 +54,7 @@ if (testing) {
     app: './app',
     vendor: Object.keys(pkg.dependencies).filter(function(e) {
       return [
-        'react-playground',
+        'macropod-components',
         'react-components', //TODO: make this finer
         'open-sans',
       ].indexOf(e) === -1;
@@ -89,7 +89,7 @@ var config = module.exports = {
           'style-loader',
           'css-loader',
           'autoprefixer-loader',
-          'sass-loader?includePaths[]=./app/base/style,includePaths[]=./node_modules,includePaths[]=./style,includePaths[]=./node_modules/react-playground/style,includePaths[]=./app/base/style,includePaths[]=./app/base/components,includePaths[]=./node_modules,includePaths[]=./node_modules/bootstrap-sass/assets/fonts'
+          'sass-loader?includePaths[]=./app/base/style,includePaths[]=./node_modules,includePaths[]=./style,includePaths[]=./node_modules/macropod-components/style,includePaths[]=./app/base/style,includePaths[]=./app/base/components,includePaths[]=./node_modules,includePaths[]=./node_modules/bootstrap-sass/assets/fonts'
         ],
       },
       { test: /\.css$/,     loader: 'style-loader!css-loader' },
