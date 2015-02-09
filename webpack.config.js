@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
 var pkg = require(process.cwd() + '/package.json');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var release = (process.env.NODE_ENV === 'production');
 var testing = (process.env.NODE_ENV === 'testing');
@@ -9,9 +8,6 @@ var testing = (process.env.NODE_ENV === 'testing');
 var plugins = [
   new webpack.IgnorePlugin(/vertx/),
   new webpack.NormalModuleReplacementPlugin(/^react$/, 'react/addons'),
-  new webpack.ProvidePlugin({
-    to5Runtime: 'imports?global=>window!exports-loader?global.to5Runtime!6to5/runtime'
-  }),
 ];
 
 if (!testing) {
@@ -33,7 +29,7 @@ if (!testing) {
   });
 }
 
-var jsxLoader = ['6to5?experimental=true&runtime=true'];
+var jsxLoader = ['6to5?experimental&optional=selfContained'];
 
 if (release)  {
   plugins.push(new webpack.DefinePlugin({
@@ -58,6 +54,7 @@ if (testing) {
     vendor: Object.keys(pkg.dependencies).filter(function(e) {
       return [
         'macropod-components',
+        '6to5-runtime',
         'react-components', //TODO: make this finer
         'open-sans',
       ].indexOf(e) === -1;
@@ -85,7 +82,8 @@ var config = module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js/, loaders: jsxLoader }, // includes js, jsx and even... .jslol
+      { test: /\.js$/, exclude: /node_modules/, loaders: jsxLoader },
+      { test: /\.jsx$/, loaders: jsxLoader }, // its slow... but some of our deps have jsx :/
       {
         test: /\.scss$/,
         loaders: [
