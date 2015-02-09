@@ -9,6 +9,9 @@ var testing = (process.env.NODE_ENV === 'testing');
 var plugins = [
   new webpack.IgnorePlugin(/vertx/),
   new webpack.NormalModuleReplacementPlugin(/^react$/, 'react/addons'),
+  new webpack.ProvidePlugin({
+    to5Runtime: 'imports?global=>window!exports-loader?global.to5Runtime!6to5/runtime'
+  }),
 ];
 
 if (!testing) {
@@ -30,7 +33,7 @@ if (!testing) {
   });
 }
 
-var jsxLoader = ['jsx-loader?harmony'];
+var jsxLoader = ['6to5?experimental=true&runtime=true'];
 
 if (release)  {
   plugins.push(new webpack.DefinePlugin({
@@ -82,7 +85,7 @@ var config = module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.jsx$/, loaders: jsxLoader },
+      { test: /\.js/, loaders: jsxLoader }, // includes js, jsx and even... .jslol
       {
         test: /\.scss$/,
         loaders: [
