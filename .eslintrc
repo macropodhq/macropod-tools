@@ -1,4 +1,7 @@
 {
+  "plugins": [
+    "react"
+  ],
   "ecmaFeatures": {
     "blockBindings": true,
     "forOf": true,
@@ -17,7 +20,11 @@
     "comma-style": [2, "last"],
     "comma-spacing": [2, {before: false, after: true}],
     "brace-style": [2, "stroustrup", { "allowSingleLine": true }],
-
+    "react/no-multi-comp": 1,
+    "react/prop-types": 1,
+    "react/display-name": 1,
+    "react/wrap-multilines": 1,
+    "react/self-closing-comp": 1
   },
   "env": {
     "browser": true,
