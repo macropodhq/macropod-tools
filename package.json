@@ -1,6 +1,6 @@
 {
   "name": "macropod-tools",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "dev server and build tools for macropod projects",
   "dependencies": {
     "autoprefixer-loader": "^1.0.0",
