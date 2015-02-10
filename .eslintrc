@@ -3,6 +3,10 @@
     "react"
   ],
   "ecmaFeatures": {
+    "objectLiteralShorthandMethods": true,
+    "templateStrings": true,
+    "defaultParams": true,
+    "arrowFunctions": true,
     "blockBindings": true,
     "forOf": true,
     "jsx": true,
