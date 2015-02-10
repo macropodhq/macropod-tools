@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
 var pkg = require(process.cwd() + '/package.json');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var release = (process.env.NODE_ENV === 'production');
 var testing = (process.env.NODE_ENV === 'testing');
@@ -30,7 +29,7 @@ if (!testing) {
   });
 }
 
-var jsxLoader = ['jsx-loader?harmony'];
+var jsxLoader = ['6to5?experimental&optional=selfContained'];
 
 if (release)  {
   plugins.push(new webpack.DefinePlugin({
@@ -82,7 +81,8 @@ var config = module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.jsx$/, loaders: jsxLoader },
+      { test: /\.js$/, exclude: /node_modules/, loaders: jsxLoader },
+      { test: /\.jsx$/, loaders: jsxLoader }, // including node_modules in this rule because Khan/react-components does not precompile their jsx
       {
         test: /\.scss$/,
         loaders: [
