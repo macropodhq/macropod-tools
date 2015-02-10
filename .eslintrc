@@ -1,0 +1,26 @@
+{
+  "ecmaFeatures": {
+    "blockBindings": true,
+    "forOf": true,
+    "jsx": true,
+    "generators": true
+  },
+  "rules": {
+    "camelcase": 0,
+    "no-comma-dangle": 0,
+    "no-underscore-dangle": 0,
+    "strict": [0, "never"],
+    "semi": 2,
+    "eqeqeq": 2,
+    "curly": 2,
+    "quotes": [2, "single"],
+    "comma-style": [2, "last"],
+    "comma-spacing": [2, {before: false, after: true}],
+    "brace-style": [2, "stroustrup", { "allowSingleLine": true }],
+
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
