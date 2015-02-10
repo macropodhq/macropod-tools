@@ -54,7 +54,6 @@ if (testing) {
     vendor: Object.keys(pkg.dependencies).filter(function(e) {
       return [
         'macropod-components',
-        '6to5-runtime',
         'react-components', //TODO: make this finer
         'open-sans',
       ].indexOf(e) === -1;
@@ -83,7 +82,7 @@ var config = module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loaders: jsxLoader },
-      { test: /\.jsx$/, loaders: jsxLoader }, // its slow... but some of our deps have jsx :/
+      { test: /\.jsx$/, loaders: jsxLoader }, // including node_modules in this rule because Khan/react-components does not precompile their jsx
       {
         test: /\.scss$/,
         loaders: [
