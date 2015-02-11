@@ -11,4 +11,4 @@ webpack-dev-server \
 	--display-error-details --progress --colors --port ${PORT} \
 	--display-chunks --output-public-path http://127.0.0.1:${PORT}/ \
 	--output-file bundle.js --content-base ./node_modules/macropod-tools/testing \
-  $(find app -name '*_test.jsx')
+  $(find . -name '*_test.jsx')
