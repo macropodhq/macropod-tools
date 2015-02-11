@@ -1,33 +1,38 @@
 # Macropod Tools
 
-dev server and build tools for macropod projects
+Development server and build tools for [webpack](http://webpack.github.io) and
+[React](http://facebook.github.io/react/), used by
+[Macropod](https://macropod.com/)'s products.
 
 ## What's the problem?
 
 Keeping the webpack configuration and build processes in line between our
-products has been tricky. We've recently seen issues with source maps and 
-performance that stemmed from different configurations being used in
-react-playground, brief-client, and stack-client. This is only going to get
-worse as we introduce more tooling around tests.
+products has been tricky.
 
-## How does this help?
+We've run into confusing issues which ultimately stemmed from the slightly
+different configurations being used in [Stack](https://macropod.com/stack/),
+[Macropod Components](https://github.com/macropodhq/macropod-components) and
+[Brief](https://macropod.com/brief/).
 
-This collection of configuration files and utility programs will provide two
-things:
+We anticipate this getting more complex as we introduce more tooling, for things
+like tests.
 
-1. a similar configuration for webpack across all our projects
-2. identical processes for making production builds, running tests, and running
-   dev servers.
+## What does it do?
 
-## What do I have to do?
+This collection of configuration files and utility programs provide two things:
 
-If you're working on an existing project? Probably nothing. The processes are
-already very similar between our projects, and this will just help to make sure
-they're identical. The exception to this is if you see something that looks like
-generic configuration or tooling and it's stuck in a single project, or worse,
-duplicated across a multiplicity thereof. If this happens, feel free to log an
-issue on this project so that it can be moved here and maintained in one place.
+1. One baseline configuration for webpack across all our products.
+2. Identical processes for making production builds, running tests, and running
+   development servers.
 
-If you're starting a new project, things are a little bit more involved. See
-[this issue](https://github.com/macropodhq/macropod-tools/issues/1) for progress
-on this part of the documentation.
+## How do I use it in my project?
+
+If you're starting a new project, things are a bit involved. See [this
+issue](https://github.com/macropodhq/macropod-tools/issues/1) for progress on
+this part of the documentation.
+
+We currently have this built into Stack, Brief and Macropod Components.
+
+If there's some specific tooling which is confined to a single project, or
+worse, duplicated across several, feel free to log an issue on this project so
+it can be moved here and maintained in one place.
