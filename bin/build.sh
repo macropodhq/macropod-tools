@@ -2,5 +2,11 @@
 
 PATH="./node_modules/macropod-tools/node_modules/.bin:${PATH}"
 
-webpack -p --display-reasons --display-error-details \
---progress --colors --bail || exit $?
+webpack \
+  --bail \
+  --colors \
+  --display-error-details \
+  --display-reasons \
+  --progress \
+  -p \
+  || exit $?
