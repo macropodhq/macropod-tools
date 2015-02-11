@@ -2,4 +2,4 @@
 
 PATH="./node_modules/macropod-tools/node_modules/.bin:${PATH}"
 
-eslint -c ./node_modules/macropod-tools/.eslintrc --ext .js --ext .jsx app packages
+eslint -c ./node_modules/macropod-tools/.eslintrc --ext .js --ext .jsx $(find . -type d -depth 1 | grep -E '(app|packages)$')
