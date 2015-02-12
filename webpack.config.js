@@ -40,7 +40,7 @@ if (release)  {
   }));
 
   plugins.push(new webpack.optimize.DedupePlugin());
-  plugins.push(new webpack.optimize.UglifyJsPlugin());
+  plugins.push(new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}));
   plugins.push(new webpack.NoErrorsPlugin()); // cause failed production builds to fail faster
 } else if (!testing) {
   jsxLoader.unshift('react-hot-loader');
