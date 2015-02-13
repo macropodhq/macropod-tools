@@ -9,7 +9,9 @@
     "forOf": true,
     "generators": true,
     "jsx": true,
+    "objectLiteralComputedProperties": true,
     "objectLiteralShorthandMethods": true,
+    "objectLiteralShorthandProperties": true,
     "templateStrings": true
   },
   "rules": {
@@ -23,6 +25,7 @@
     "new-cap": [2, {newIsCap: true, capIsNew: false}],
     "no-comma-dangle": 0,
     "no-underscore-dangle": 0,
+    "no-var": 1,
     "quotes": [2, "single"],
     "semi": 2,
     "strict": [0, "never"],
