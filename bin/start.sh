@@ -12,6 +12,6 @@ webpack-dev-server \
   --history-api-fallback \
   --hot \
   --inline \
-  --output-public-path http://127.0.0.1:${PORT}/
+  --output-public-path http://127.0.0.1:${PORT}/ \
   --port ${PORT} \
-  --progress \
+  --progress
