@@ -81,8 +81,7 @@ var config = module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loaders: jsxLoader },
-      { test: /\.jsx$/, loaders: jsxLoader }, // including node_modules in this rule because Khan/react-components does not precompile their jsx
+      { test: /\.(js|jsx)$/,  loaders: jsxLoader },
       {
         test: /\.scss$/,
         loaders: [
