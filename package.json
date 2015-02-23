@@ -1,6 +1,6 @@
 {
   "name": "macropod-tools",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "dev server and build tools for macropod projects",
   "dependencies": {
     "6to5-core": "^3.5.3",
