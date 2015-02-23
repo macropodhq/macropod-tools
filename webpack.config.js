@@ -81,7 +81,7 @@ var config = module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.(js|jsx)$/,  loaders: jsxLoader },
+      { test: /\.(js|jsx)$/, exclude: /socket.io/,  loaders: jsxLoader },
       {
         test: /\.scss$/,
         loaders: [
