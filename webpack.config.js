@@ -81,7 +81,7 @@ var config = module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.(js|jsx)$/,  loaders: jsxLoader },
+      { test: /\.(js|jsx)$/, exclude: /socket.io/,  loaders: jsxLoader }, // exclude socket.io because it breaks when built with babbel/6to5 loader because reasons
       {
         test: /\.scss$/,
         loaders: [
