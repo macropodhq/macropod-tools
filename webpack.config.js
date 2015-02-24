@@ -81,7 +81,16 @@ var config = module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.(js|jsx)$/,  loaders: jsxLoader },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loaders: jsxLoader,
+      },
+      {
+        test: /\.(js|jsx)$/,
+        include: /macropod-components/,
+        loaders: jsxLoader,
+      },
       {
         test: /\.scss$/,
         loaders: [
@@ -91,15 +100,42 @@ var config = module.exports = {
           'sass-loader?includePaths[]=./app/base/style,includePaths[]=./node_modules,includePaths[]=./style,includePaths[]=./node_modules/macropod-components/style,includePaths[]=./app/base/style,includePaths[]=./app/base/components,includePaths[]=./node_modules,includePaths[]=./node_modules/bootstrap-sass/assets/fonts'
         ],
       },
-      { test: /\.css$/,     loader: 'style-loader!css-loader' },
-      { test: /\.png$/,     loader: 'url-loader?limit=100000&mimetype=image/png'},
-      { test: /\.jpg$/,     loader: 'url-loader?limit=100000&mimetype=image/jpeg' },
-      { test: /\.woff$/,    loader: 'url-loader?mimetype=application/font-woff' },
-      { test: /\.ttf$/,     loader: 'url-loader?' },
-      { test: /\.eot$/,     loader: 'url-loader?' },
-      { test: /\.svg$/,     loader: 'url-loader' },
-      { test: /\.pdf$/,     loader: 'file-loader' },
-      { test: /\.raw.svg$/, loader: 'raw-loader?' },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader',
+      },
+      {
+        test: /\.png$/,
+        loader: 'url-loader?limit=100000&mimetype=image/png',
+      },
+      {
+        test: /\.jpg$/,
+        loader: 'url-loader?limit=100000&mimetype=image/jpeg',
+      },
+      {
+        test: /\.woff$/,
+        loader: 'url-loader?mimetype=application/font-woff',
+      },
+      {
+        test: /\.ttf$/,
+        loader: 'url-loader?',
+      },
+      {
+        test: /\.eot$/,
+        loader: 'url-loader?',
+      },
+      {
+        test: /\.svg$/,
+        loader: 'url-loader',
+      },
+      {
+        test: /\.pdf$/,
+        loader: 'file-loader',
+      },
+      {
+        test: /\.raw.svg$/,
+        loader: 'raw-loader?',
+      },
     ],
   },
 };
