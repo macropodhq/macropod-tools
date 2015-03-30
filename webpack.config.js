@@ -29,7 +29,7 @@ if (!testing) {
   });
 }
 
-var jsxLoader = ['6to5?experimental&optional=selfContained'];
+var jsxLoader = ['babel?experimental&optional=runtime'];
 
 if (release)  {
   plugins.push(new webpack.DefinePlugin({
