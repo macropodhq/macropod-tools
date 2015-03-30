@@ -1,19 +1,8 @@
 {
+  "parser": "babel-eslint",
   "plugins": [
     "react"
   ],
-  "ecmaFeatures": {
-    "arrowFunctions": true,
-    "blockBindings": true,
-    "defaultParams": true,
-    "forOf": true,
-    "generators": true,
-    "jsx": true,
-    "objectLiteralComputedProperties": true,
-    "objectLiteralShorthandMethods": true,
-    "objectLiteralShorthandProperties": true,
-    "templateStrings": true
-  },
   "rules": {
     "brace-style": [2, "1tbs", {"allowSingleLine": true}],
     "camelcase": 0,

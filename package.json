@@ -35,5 +35,8 @@
     "macropod-build": "./bin/build.sh",
     "macropod-start-test": "./bin/start-test.sh"
   },
-  "homepage": "https://github.com/macropodhq/macropod-tools"
+  "homepage": "https://github.com/macropodhq/macropod-tools",
+  "devDependencies": {
+    "babel-eslint": "^2.0.2"
+  }
 }
