@@ -5,6 +5,7 @@
   "dependencies": {
     "autoprefixer-loader": "^1.0.0",
     "babel-core": "^4.7.16",
+    "babel-eslint": "^2.0.2",
     "babel-loader": "^4.2.0",
     "babel-runtime": "^4.7.16",
     "chai": "^1.10.0",
@@ -35,8 +36,5 @@
     "macropod-build": "./bin/build.sh",
     "macropod-start-test": "./bin/start-test.sh"
   },
-  "homepage": "https://github.com/macropodhq/macropod-tools",
-  "devDependencies": {
-    "babel-eslint": "^2.0.2"
-  }
+  "homepage": "https://github.com/macropodhq/macropod-tools"
 }
