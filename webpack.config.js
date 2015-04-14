@@ -88,7 +88,7 @@ var config = module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        include: /macropod-components/,
+        include: /node_modules[\\\/]macropod-components/,
         loaders: jsxLoader,
       },
       {
