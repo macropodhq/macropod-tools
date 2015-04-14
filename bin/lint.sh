@@ -6,4 +6,4 @@ eslint \
   --config ./node_modules/macropod-tools/.eslintrc \
   --ext .js \
   --ext .jsx \
-  ${@-$(find . -type d -depth 1 | grep -E '(app|packages)$')}
+  $(find . -maxdepth 1 -type d | grep -E '(app|packages)$')
