@@ -56,6 +56,7 @@ if (testing) {
         'macropod-components',
         'react-components', //TODO: make this finer
         'open-sans',
+        'pouch-client',
       ].indexOf(e) === -1;
     }),
   };
@@ -89,6 +90,11 @@ var config = module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: /node_modules[\\\/]macropod-components/,
+        loaders: jsxLoader,
+      },
+      {
+        test: /\.(js|jsx)$/,
+        include: /pouch-client/,
         loaders: jsxLoader,
       },
       {
