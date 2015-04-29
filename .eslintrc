@@ -16,6 +16,7 @@
     "comma-dangle": [2, "always-multiline"],
     "no-dupe-args": 2,
     "no-multiple-empty-lines": 2,
+    "no-spaced-func": 2,
     "no-trailing-spaces": 2,
     "no-underscore-dangle": 0,
     "no-unused-vars": [2, {vars: "all", args: "none"}],
