@@ -89,12 +89,12 @@ var config = module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        include: /node_modules[\\\/]macropod-components/,
-        loaders: jsxLoader,
-      },
-      {
-        test: /\.(js|jsx)$/,
-        include: /pouch-client/,
+        /*
+         * Note: When building a module which needs to be included and built
+         * using Babel, you must add its name to the end of the `include` regex
+         * i.e. /node_modules[\\\/](?:macropod-components|my-module-name)/
+         */
+        include: /node_modules[\\\/](?:macropod-components|pouch-client)/,
         loaders: jsxLoader,
       },
       {
