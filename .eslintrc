@@ -25,6 +25,7 @@
     "quotes": [2, "single"],
     "semi": 2,
     "space-after-keywords": 2,
+    "space-before-blocks": 1,
     "space-before-function-paren": [1, "never"],
     "space-in-brackets": [1, "never"],
     "strict": [0, "never"],
