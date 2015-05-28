@@ -98,6 +98,10 @@ var config = module.exports = {
         loaders: jsxLoader,
       },
       {
+        test: /\.json$/,
+        loader: 'json',
+      },
+      {
         test: /\.scss$/,
         loaders: [
           'style-loader',
