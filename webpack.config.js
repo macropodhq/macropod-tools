@@ -82,6 +82,8 @@ var config = module.exports = {
   },
   module: {
     loaders: [
+      // don't move this loader out of first place - it's referenced by position
+      // in stack's config (i know, ew)
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
