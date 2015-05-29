@@ -29,7 +29,7 @@ if (!testing) {
   });
 }
 
-var jsxLoader = ['babel?optional[]=runtime&stage=0'];
+var jsxLoader = ['babel?optional[]=runtime&stage=0&cacheDirectory=true'];
 
 if (release)  {
   plugins.push(new webpack.DefinePlugin({
