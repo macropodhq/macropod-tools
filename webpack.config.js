@@ -1,6 +1,15 @@
 var webpack = require('webpack');
 var path = require('path');
 var pkg = require(process.cwd() + '/package.json');
+var autoprefixer = require('autoprefixer');
+var postcssMixins = require('postcss-mixins');
+var postcssVars = require('postcss-simple-vars');
+var postcssNested = require('postcss-nested');
+var postcssExtend = require('postcss-simple-extend');
+var postcssImport = require('postcss-import');
+var postcssCalc = require('postcss-calc');
+var postcssColor = require('postcss-color-function');
+var postcssUrl = require('postcss-url');
 
 var release = (process.env.NODE_ENV === 'production');
 var testing = (process.env.NODE_ENV === 'testing');
@@ -54,8 +63,8 @@ if (testing) {
     vendor: Object.keys(pkg.dependencies).filter(function(e) {
       return [
         'macropod-components',
+        'open-sands',
         'react-components', //TODO: make this finer
-        'open-sans',
         'pouch-client',
       ].indexOf(e) === -1;
     }),
@@ -76,7 +85,7 @@ var config = module.exports = {
     modulesDirectories: ['node_modules', 'node_modules/macropod-tools/node_modules']
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss', '.css'],
+    extensions: ['', '.js', '.jsx', '.scss', '.pcss', '.css'],
     modulesDirectories: ['node_modules', 'node_modules/macropod-tools/node_modules'],
     packageMains: ['browser', 'main', 'style'],
   },
@@ -109,7 +118,15 @@ var config = module.exports = {
           'style-loader',
           'css-loader',
           'autoprefixer-loader',
-          'sass-loader?includePaths[]=./app/base/style,includePaths[]=./node_modules,includePaths[]=./style,includePaths[]=./node_modules/macropod-components/style,includePaths[]=./app/base/style,includePaths[]=./app/base/components,includePaths[]=./node_modules,includePaths[]=./node_modules/bootstrap-sass/assets/fonts'
+          'sass-loader?includePaths[]=./app/base/style,includePaths[]=./node_modules,includePaths[]=./style,includePaths[]=./node_modules/macropod-components/style,includePaths[]=./app/base/style,includePaths[]=./app/base/components,includePaths[]=./node_modules,includePaths[]=./node_modules/bootstrap-sass/assets/fonts',
+        ],
+      },
+      {
+        test: /\.pcss$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
         ],
       },
       {
@@ -150,4 +167,15 @@ var config = module.exports = {
       },
     ],
   },
+  postcss: [
+    postcssImport,
+    postcssUrl(),
+    postcssMixins,
+    postcssExtend,
+    postcssVars,
+    postcssCalc(),
+    postcssColor(),
+    postcssNested,
+    autoprefixer,
+  ],
 };

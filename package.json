@@ -21,7 +21,17 @@
     "style-loader": "^0.12.3",
     "url-loader": "~0.5.5",
     "webpack": "^1.5.3",
-    "webpack-dev-server": "^1.7.0"
+    "webpack-dev-server": "^1.7.0",
+    "postcss-loader": "^0.4.2",
+    "autoprefixer": "^5.1.1",
+    "postcss-mixins" : "^0.1.1",
+    "postcss-simple-vars" : "^0.3.0",
+    "postcss-nested" : "^0.2.2",
+    "postcss-simple-extend": "^0.3.1",
+    "postcss-import": "^5.2.2",
+    "postcss-calc": "^4.0.1",
+    "postcss-color-function": "^1.2.0",
+    "postcss-url": "^3.2.0"
   },
   "repository": {
     "type": "git",
