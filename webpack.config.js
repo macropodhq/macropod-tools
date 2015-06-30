@@ -138,6 +138,10 @@ var config = module.exports = {
         loader: 'style-loader!css-loader',
       },
       {
+        test: /\.mcss$/,
+        loader: 'style-loader!css-loader?module&localIdentName=[path][name]---[local]---[hash:base64:5]',
+      },
+      {
         test: /\.png$/,
         loader: 'url-loader?limit=100000&mimetype=image/png',
       },
