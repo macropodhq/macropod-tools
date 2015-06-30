@@ -25,6 +25,27 @@ if (!testing) {
         path.join(process.cwd(), 'dist', 'stats.json'),
         JSON.stringify(jsonStats)
       );
+
+      var modules = jsonStats.modules;
+      modules.sort(function(a, b) {
+        if (a.size > b.size) {
+          return -1;
+        }
+        if (a.size < b.size) {
+          return 1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+
+      console.log('\n\n20 largest assets');
+
+      for (var i=0;i<20;i++) {
+        var module = modules[i];
+        console.log(module.name + ' ' + module.size);
+      }
+
+      console.log();
     });
   });
 }
