@@ -139,7 +139,7 @@ var config = module.exports = {
       },
       {
         test: /\.mcss$/,
-        loader: 'style-loader!css-loader?module&localIdentName=[path][name]---[local]---[hash:base64:5]',
+        loader: 'style-loader!css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]',
       },
       {
         test: /\.png$/,
