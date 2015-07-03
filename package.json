@@ -1,6 +1,6 @@
 {
   "name": "macropod-tools",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Development server and build tools for webpack and React, used by Macropod's products.",
   "dependencies": {
     "autoprefixer-loader": "^1.0.0",
