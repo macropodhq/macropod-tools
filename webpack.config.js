@@ -128,18 +128,18 @@ var config = module.exports = {
         test: /\.scss$/,
         loaders: [
           'style-loader',
-          'css-loader',
+          'css-loader?-minimize',
           'autoprefixer-loader',
           'sass-loader?includePaths[]=./app/base/style,includePaths[]=./node_modules,includePaths[]=./style,includePaths[]=./node_modules/macropod-components/style,includePaths[]=./app/base/style,includePaths[]=./app/base/components,includePaths[]=./node_modules,includePaths[]=./node_modules/bootstrap-sass/assets/fonts'
         ],
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader',
+        loader: 'style-loader!css-loader?-minimize',
       },
       {
         test: /\.mcss$/,
-        loader: 'style-loader!css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]',
+        loader: 'style-loader!css-loader?-minimize&modules&localIdentName=[path][name]---[local]---[hash:base64:5]',
       },
       {
         test: /\.png$/,
