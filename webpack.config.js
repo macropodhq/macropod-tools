@@ -12,7 +12,7 @@ var plugins = [
 ];
 
 if (!testing) {
-  plugins.push(new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'));
+  plugins.push(new webpack.optimize.CommonsChunkPlugin('vendor', 'assets/vendor-[hash].js'));
   plugins.push(function() { // emit stats.json here because shell scripting is hard
     this.plugin('done', function(stats) {
       var jsonStats = stats.toJson({
@@ -91,7 +91,7 @@ var config = module.exports = {
   entry: entry,
   output: {
     path: process.cwd() + '/dist',
-    filename: '[name].js',
+    filename: 'assets/[name]-[chunkhash].js',
   },
   plugins: plugins,
   resolveLoader: {
