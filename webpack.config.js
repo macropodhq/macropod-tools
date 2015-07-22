@@ -141,7 +141,7 @@ var config = module.exports = {
       },
       {
         test: /\.mcss$/,
-        loader: 'style-loader!css-loader?-minimize&modules&localIdentName=[path][name]---[local]---[hash:base64:5]!postcss-loader',
+        loader: 'style-loader!css-loader?-minimize&modules&localIdentName=[path][name]---[local]---[hash:base64:5]&importLoaders=1!postcss-loader',
       },
       {
         test: /\.png$/,
