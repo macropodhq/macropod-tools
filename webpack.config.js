@@ -99,7 +99,7 @@ var config = module.exports = {
     modulesDirectories: ['node_modules', 'node_modules/macropod-tools/node_modules']
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss', '.css'],
+    extensions: ['', '.js', '.jsx', '.scss', '.css', '.mcss'],
     modulesDirectories: ['node_modules', 'node_modules/macropod-tools/node_modules'],
     packageMains: ['browser', 'main', 'style'],
   },
