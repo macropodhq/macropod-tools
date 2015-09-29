@@ -2,7 +2,6 @@ var webpack = require('webpack');
 var path = require('path');
 var pkg = require(process.cwd() + '/package.json');
 var constants = require('postcss-local-constants');
-var cssvars = require('postcss-simple-vars');
 
 var release = (process.env.NODE_ENV === 'production');
 var testing = (process.env.NODE_ENV === 'testing');
@@ -177,9 +176,7 @@ var config = module.exports = {
       },
     ],
   },
-  cssvars: cssvars,
   postcss: [
     constants(),
-    cssvars(),
   ],
 };
