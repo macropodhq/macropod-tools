@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 var pkg = require(process.cwd() + '/package.json');
 var constants = require('postcss-local-constants');
+var autoprefixer = require('autoprefixer-core');
 
 var release = (process.env.NODE_ENV === 'production');
 var testing = (process.env.NODE_ENV === 'testing');
@@ -178,5 +179,6 @@ var config = module.exports = {
   },
   postcss: [
     constants(),
+    autoprefixer({ browsers: ['last 3 versions'] }),
   ],
 };
